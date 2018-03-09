@@ -9,12 +9,7 @@ package com.mycompany.ejercicioarem.Ejercicio43.Ejercicio431;
 import java.io.*;
 import java.net.*;
 
-/**
- *
- * @author 2117816
- */
 public class EchoClient {
-    
     public static void main(String[] args) throws IOException {
         Socket echoSocket = null;
         PrintWriter out = null;
@@ -41,5 +36,5 @@ public class EchoClient {
         stdIn.close();
         echoSocket.close();
     }
-    
 }
+

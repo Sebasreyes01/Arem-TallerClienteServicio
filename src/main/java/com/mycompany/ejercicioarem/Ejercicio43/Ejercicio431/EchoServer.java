@@ -5,15 +5,10 @@
  */
 package com.mycompany.ejercicioarem.Ejercicio43.Ejercicio431;
 
-import java.io.*;
 import java.net.*;
+import java.io.*;
 
-/**
- *
- * @author 2117816
- */
 public class EchoServer {
-    
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
         try {
@@ -32,17 +27,25 @@ public class EchoServer {
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         String inputLine, outputLine;
+        Double input = 0.0;
         while ((inputLine = in.readLine()) != null) {
             System.out.println("Mensaje: " + inputLine);
-            outputLine = "Respuesta: " + inputLine ;
+            try {
+                input = Double.parseDouble(inputLine);
+                System.out.println("entro: " + input);
+            } catch (NumberFormatException e) {
+                out.println("The input value is not a number, try again");
+                continue;
+            }
+            outputLine = "Respuesta: " + Math.pow(input, 2);
             out.println(outputLine);
             if (outputLine.equals("Respuestas: Bye.")) {
                 break;
             }
-            out.close();
-            in.close();
-            clientSocket.close();
-            serverSocket.close();
         }
-    }    
+        out.close();
+        in.close();
+        clientSocket.close();
+        serverSocket.close();
+    }
 }
