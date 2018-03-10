@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany.ejercicioarem.Ejercicio43.Ejercicio431;
-
+package com.mycompany.ejercicioarem.Ejercicio43.Ejercicio432;
 
 import java.io.*;
 import java.net.*;
-
 public class EchoClient {
     public static void main(String[] args) throws IOException {
         Socket echoSocket = null;
@@ -19,10 +12,10 @@ public class EchoClient {
             out = new PrintWriter(echoSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
         } catch (UnknownHostException e) {
-            System.err.println("Don’t know about host!.");
+            System.err.println("Don't know about host!.");
             System.exit(1);
         } catch (IOException e) {
-            System.err.println("Couldn’t get I/O for " + "the connection to: localhost.");
+            System.err.println("Couldn't get I/O for " + "the connection to: localhost.");
             System.exit(1);
         }
         BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
@@ -37,4 +30,3 @@ public class EchoClient {
         echoSocket.close();
     }
 }
-
